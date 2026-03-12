@@ -1,0 +1,10 @@
+[tool.flet]
+app_name = "Python Master Training"
+app_id = "com.tuusuario.pythonmaster"
+app_version = "1.0.0"
+description = "App para estudiar Python con 3 fases de entrenamiento"
+org = "com.tuusuario"
+
+[tool.flet.android]
+splash_color = "#F5F5F7"
+splash_dark_color = "#1D1D1F"
