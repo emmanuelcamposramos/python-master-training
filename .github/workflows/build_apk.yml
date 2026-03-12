@@ -18,7 +18,7 @@ jobs:
           python-version: "3.11"
 
       - name: Instalar Flet
-        run: pip install flet==0.25.2
+        run: pip install flet==0.24.1
 
       - name: Configurar Java 17
         uses: actions/setup-java@v4
@@ -36,7 +36,7 @@ jobs:
           flet build apk \
             --project "Python Master Training" \
             --org com.tuusuario \
-            --build-version 1.0.0 \
+            --build-version 1.0.0 
             --verbose
 
       - name: Subir APK
