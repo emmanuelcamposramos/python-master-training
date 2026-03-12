@@ -27,16 +27,18 @@ jobs:
       - name: Instalar Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.24.5"
+          flutter-version: "3.24.3"
           channel: "stable"
 
-      - name: Instalar dependencias del sistema
+      - name: Configurar Flutter
         run: |
+          flutter config --no-analytics
+          flutter doctor --android-licenses <<< "y" || true
           sudo apt-get update
-          sudo apt-get install -y curl git unzip xz-utils zip libglu1-mesa
+          sudo apt-get install -y libgtk-3-dev
 
       - name: Instalar Flet
-        run: pip install flet==0.24.1
+        run: pip install flet==0.24.0
 
       - name: Build APK
         run: |
