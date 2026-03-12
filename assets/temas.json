@@ -1,0 +1,478 @@
+[
+    {
+        "categoria": "Básico",
+        "titulo": "Variables y Tipos (int, float, str)",
+        "codigo": "edad = 30\nprecio = 99.99\nnombre = \"Ana\"\nes_mayor = True",
+        "explicacion": "# Variable entera\nedad = 30\n# Variable flotante\nprecio = 99.99\n# Variable cadena de texto\nnombre = \"Ana\"\n# Variable booleana\nes_mayor = True",
+        "plantilla": "edad = ___\nprecio = ____\nnombre = \"______\"\nes_mayor = ______"
+    },
+    {
+        "categoria": "Básico",
+        "titulo": "Operadores Aritméticos",
+        "codigo": "a = 10\nb = 3\nsuma = a + b\nresta = a - b\nmulti = a * b\ndiv = a / b\nmod = a % b\nexp = a ** b",
+        "explicacion": "# Operaciones básicas\nsuma = a + b\nresta = a - b\nmulti = a * b\n# División flotante\ndiv = a / b\n# Módulo (resto)\nmod = a % b\n# Exponente\npot = a ** b",
+        "plantilla": "a = __\nb = __\nsuma = a __ b\nresta = a - b\nmulti = a * b\ndiv = a __ b\nmod = a % b\npot = a __ b"
+    },
+    {
+        "categoria": "Básico",
+        "titulo": "Conversión de Tipos (Casting)",
+        "codigo": "num_str = \"123\"\nnum_int = int(num_str)\nnum_float = float(num_str)\npi = 3.1416\npi_int = int(pi)",
+        "explicacion": "# Cadena a entero\nnum_int = int(num_str)\n# Cadena a flotante\nnum_float = float(num_str)\n# Flotante a entero (trunca)\npi_int = int(pi)",
+        "plantilla": "num_str = \"123\"\nnum_int = ______(num_str)\nnum_float = ______(num_str)\npi = 3.1416\npi_int = ______(pi)"
+    },
+    {
+        "categoria": "Básico",
+        "titulo": "Entrada de Usuario (input)",
+        "codigo": "nombre = input(\"¿Cómo te llamas? \")\nedad = int(input(\"¿Cuántos años tienes? \"))\nprint(f\"Hola {nombre}, el año que viene tendrás {edad+1} años.\")",
+        "explicacion": "# Entrada de texto\nnombre = input(\"¿Cómo te llamas? \")\n# Entrada numérica (convertir)\nedad = int(input(\"¿Cuántos años tienes? \"))\n# Salida formateada\nprint(f\"Hola {nombre}, el año que viene tendrás {edad+1} años.\")",
+        "plantilla": "nombre = ______(\"¿Cómo te llamas? \")\nedad = ______(______(\"¿Cuántos años tienes? \"))\nprint(f\"Hola {nombre}, el año que viene tendrás {edad+1} años.\")"
+    },
+    {
+        "categoria": "Básico",
+        "titulo": "Comentarios y Documentación",
+        "codigo": "# Este es un comentario de una línea\n\"\"\"\nEste es un comentario\nmultilínea o docstring\n\"\"\"\ndef saludar():\n    '''Función que saluda'''\n    print(\"Hola\")",
+        "explicacion": "# Comentario de línea\n# Se ignora en ejecución\n\"\"\"\nDocstring multilínea\npara explicar módulos\n\"\"\"\ndef saludar():\n    '''Docstring de función'''\n    print(\"Hola\")",
+        "plantilla": "__ Esto es un comentario de línea\n\"\"\"\nEsto es un comentario\n__________\n\"\"\"\ndef saludar():\n    '''__________ de función'''\n    print(\"Hola\")"
+    },
+    {
+        "categoria": "Básico",
+        "titulo": "Operadores de Comparación",
+        "codigo": "x = 5\ny = 10\nprint(x == y)  # False\nprint(x != y)  # True\nprint(x < y)   # True\nprint(x >= 5)  # True",
+        "explicacion": "# Igualdad\nprint(x == y)\n# Desigualdad\nprint(x != y)\n# Menor que\nprint(x < y)\n# Mayor o igual que\nprint(x >= 5)",
+        "plantilla": "x = 5\ny = 10\nprint(x __ y)  # False\nprint(x __ y)  # True\nprint(x < y)   # True\nprint(x __ 5)  # True"
+    },
+    {
+        "categoria": "Básico",
+        "titulo": "Operadores Lógicos",
+        "codigo": "edad = 25\ntiene_carnet = True\npuede_conducir = edad >= 18 and tiene_carnet\nentra_grupo = edad < 18 or tiene_carnet\nno_es_menor = not (edad < 18)",
+        "explicacion": "# AND: ambas deben ser True\npuede_conducir = edad >= 18 and tiene_carnet\n# OR: al menos una True\nentra_grupo = edad < 18 or tiene_carnet\n# NOT: invierte el valor\nno_es_menor = not (edad < 18)",
+        "plantilla": "edad = 25\ntiene_carnet = True\npuede_conducir = edad >= 18 ______ tiene_carnet\nentra_grupo = edad < 18 ______ tiene_carnet\nno_es_menor = ______ (edad < 18)"
+    },
+    {
+        "categoria": "Básico",
+        "titulo": "Asignación Múltiple",
+        "codigo": "a, b, c = 1, 2, 3\nx = y = z = 0\nprint(a, b, c)  # 1 2 3\nprint(x, y, z)  # 0 0 0",
+        "explicacion": "# Asignación múltiple en una línea\na, b, c = 1, 2, 3\n# Asignación encadenada (mismo valor)\nx = y = z = 0\n# Verificación\nprint(a, b, c)\nprint(x, y, z)",
+        "plantilla": "a, b, c = __, __, __\nx = y = z = __\nprint(a, b, c)\nprint(x, y, z)"
+    },
+    {
+        "categoria": "Básico",
+        "titulo": "Cadenas (Strings)",
+        "codigo": "texto = \"Python\"\nprint(texto[0])     # P\nprint(texto[-1])    # n\nprint(texto[1:4])   # yth\nprint(len(texto))   # 6\nprint(texto.upper())# PYTHON",
+        "explicacion": "# Acceso por índice\nprint(texto[0])\nprint(texto[-1])\n# Slicing [inicio:fin]\nprint(texto[1:4])\n# Longitud\nprint(len(texto))\n# Método a mayúsculas\nprint(texto.upper())",
+        "plantilla": "texto = \"Python\"\nprint(texto[__])\nprint(texto[__])\nprint(texto[__:__])\nprint(______(texto))\nprint(texto.______())"
+    },
+    {
+        "categoria": "Básico",
+        "titulo": "Formateo de Cadenas",
+        "codigo": "nombre = \"Carlos\"\nedad = 30\n# f-string (recomendado)\nprint(f\"Me llamo {nombre} y tengo {edad} años.\")\n# format()\nprint(\"Me llamo {} y tengo {} años.\".format(nombre, edad))",
+        "explicacion": "# f-string (Python 3.6+)\nprint(f\"Me llamo {nombre} y tengo {edad} años.\")\n# Método format()\nprint(\"Me llamo {} y tengo {} años.\".format(nombre, edad))",
+        "plantilla": "nombre = \"Carlos\"\nedad = 30\n# f-string\nprint(___\"Me llamo {______} y tengo {______} años.\")\n# format\nprint(\"Me llamo {} y tengo {} años.\".______(nombre, edad))"
+    },
+    {
+        "categoria": "Control",
+        "titulo": "Condicional if-elif-else",
+        "codigo": "nota = 85\nif nota >= 90:\n    calif = 'A'\nelif nota >= 80:\n    calif = 'B'\nelif nota >= 70:\n    calif = 'C'\nelse:\n    calif = 'F'\nprint(calif)",
+        "explicacion": "# Evaluación múltiple\nif nota >= 90:\n    calif = 'A'\n# Si no se cumple el primero\nelif nota >= 80:\n    calif = 'B'\nelif nota >= 70:\n    calif = 'C'\n# Si ninguno se cumple\nelse:\n    calif = 'F'",
+        "plantilla": "nota = 85\n______ nota >= 90:\n    calif = 'A'\n______ nota >= 80:\n    calif = 'B'\n______ nota >= 70:\n    calif = 'C'\n______:\n    calif = 'F'"
+    },
+    {
+        "categoria": "Control",
+        "titulo": "Bucle for con range()",
+        "codigo": "for i in range(5):\n    print(f\"Iteración {i}\")\n\nfor j in range(2, 10, 2):\n    print(f\"Pares: {j}\")",
+        "explicacion": "# range(5) -> 0,1,2,3,4\nfor i in range(5):\n    print(f\"Iteración {i}\")\n# range(inicio, fin, paso)\nfor j in range(2, 10, 2):\n    print(f\"Pares: {j}\")",
+        "plantilla": "for i in ______(5):\n    print(f\"Iteración {i}\")\n\nfor j in ______(2, 10, __):\n    print(f\"Pares: {j}\")"
+    },
+    {
+        "categoria": "Control",
+        "titulo": "Bucle while",
+        "codigo": "contador = 0\nwhile contador < 5:\n    print(f\"Contador: {contador}\")\n    contador += 1\n\nprint(\"Fin del bucle\")",
+        "explicacion": "# Inicialización\ncontador = 0\n# Condición de parada\nwhile contador < 5:\n    print(f\"Contador: {contador}\")\n    # Incremento\n    contador += 1\nprint(\"Fin del bucle\")",
+        "plantilla": "contador = __\n______ contador < 5:\n    print(f\"Contador: {contador}\")\n    contador __= 1\n\nprint(\"Fin del bucle\")"
+    },
+    {
+        "categoria": "Control",
+        "titulo": "break y continue",
+        "codigo": "for i in range(10):\n    if i == 5:\n        break  # sale del bucle\n    if i % 2 == 0:\n        continue  # salta a siguiente iteración\n    print(i)  # solo impares antes de 5",
+        "explicacion": "for i in range(10):\n    if i == 5:\n        break  # Termina el bucle aquí\n    if i % 2 == 0:\n        continue  # Salta al siguiente i\n    print(i)  # Se ejecuta solo para impares < 5",
+        "plantilla": "for i in range(10):\n    if i == 5:\n        ______\n    if i % 2 == 0:\n        ______\n    print(i)"
+    },
+    {
+        "categoria": "Control",
+        "titulo": "Condicional con in",
+        "codigo": "colores = ['rojo', 'verde', 'azul']\ncolor = 'verde'\nif color in colores:\n    print(f\"{color} está en la lista\")\nif 'amarillo' not in colores:\n    print(\"amarillo no está\")",
+        "explicacion": "# Lista de colores\ncolores = ['rojo', 'verde', 'azul']\ncolor = 'verde'\n# Verificar pertenencia\nif color in colores:\n    print(f\"{color} está en la lista\")\n# Verificar no pertenencia\nif 'amarillo' not in colores:\n    print(\"amarillo no está\")",
+        "plantilla": "colores = ['rojo', 'verde', 'azul']\ncolor = 'verde'\nif color ______ colores:\n    print(f\"{color} está en la lista\")\nif 'amarillo' ______ colores:\n    print(\"amarillo no está\")"
+    },
+    {
+        "categoria": "Control",
+        "titulo": "Bucle for en strings",
+        "codigo": "palabra = \"Python\"\nfor letra in palabra:\n    print(letra)\n\nfor i, letra in enumerate(palabra):\n    print(f\"Índice {i}: {letra}\")",
+        "explicacion": "# Iterar sobre cada caracter\nfor letra in palabra:\n    print(letra)\n# enumerate da índice y valor\nfor i, letra in enumerate(palabra):\n    print(f\"Índice {i}: {letra}\")",
+        "plantilla": "palabra = \"Python\"\nfor ______ in palabra:\n    print(letra)\n\nfor i, ______ in enumerate(palabra):\n    print(f\"Índice {i}: {letra}\")"
+    },
+    {
+        "categoria": "Control",
+        "titulo": "else en bucles",
+        "codigo": "for i in range(5):\n    print(i)\n    if i == 3:\n        break\nelse:\n    print(\"Bucle completado sin break\")\n\n# No se ejecuta el else porque hubo break",
+        "explicacion": "# El else se ejecuta si no hay break\nfor i in range(5):\n    print(i)\n    if i == 3:\n        break  # Rompe el bucle\nelse:\n    # Este bloque NO se ejecuta\n    print(\"Bucle completado sin break\")",
+        "plantilla": "for i in range(5):\n    print(i)\n    if i == 3:\n        ______\n______:\n    print(\"Bucle completado sin break\")"
+    },
+    {
+        "categoria": "Control",
+        "titulo": "Comprensión de listas simple",
+        "codigo": "numeros = [1, 2, 3, 4, 5]\ncuadrados = [n**2 for n in numeros]\npares = [n for n in numeros if n % 2 == 0]\nprint(cuadrados)  # [1, 4, 9, 16, 25]\nprint(pares)      # [2, 4]",
+        "explicacion": "# Lista original\nnumeros = [1, 2, 3, 4, 5]\n# [expresión for elemento in iterable]\ncuadrados = [n**2 for n in numeros]\n# Con condición\npares = [n for n in numeros if n % 2 == 0]",
+        "plantilla": "numeros = [1, 2, 3, 4, 5]\ncuadrados = [n**2 for n in numeros]\npares = [n for n in numeros ______ n % 2 == 0]\nprint(cuadrados)\nprint(pares)"
+    },
+    {
+        "categoria": "Control",
+        "titulo": "pass (placeholder)",
+        "codigo": "if True:\n    pass  # No hace nada, evita error\n\ndef funcion_pendiente():\n    pass  # Para implementar después\n\nclass MiClase:\n    pass",
+        "explicacion": "# pass es una operación nula\n# Útil como placeholder\nif True:\n    pass  # El bloque está vacío pero válido\n\ndef funcion_pendiente():\n    pass  # Implementaré esto luego\n\nclass MiClase:\n    pass  # Definición vacía",
+        "plantilla": "if True:\n    ______\n\ndef funcion_pendiente():\n    ______\n\nclass MiClase:\n    ______"
+    },
+    {
+        "categoria": "Estructuras",
+        "titulo": "Listas - Métodos básicos",
+        "codigo": "frutas = ['manzana', 'banana']\nfrutas.append('naranja')\nfrutas.insert(1, 'uva')\nfrutas.remove('banana')\nultimo = frutas.pop()\nprint(frutas)  # ['manzana', 'uva']\nprint(ultimo)  # naranja",
+        "explicacion": "# Lista inicial\nfrutas = ['manzana', 'banana']\n# Añadir al final\nfrutas.append('naranja')\n# Insertar en posición\nfrutas.insert(1, 'uva')\n# Eliminar por valor\nfrutas.remove('banana')\n# Extraer último\nultimo = frutas.pop()",
+        "plantilla": "frutas = ['manzana', 'banana']\nfrutas.________('naranja')\nfrutas.insert(__, 'uva')\nfrutas.________('banana')\nultimo = frutas.______()"
+    },
+    {
+        "categoria": "Estructuras",
+        "titulo": "Listas - Ordenación",
+        "codigo": "numeros = [5, 2, 8, 1, 9]\nnumeros.sort()  # Ordena in-place\nprint(numeros)  # [1, 2, 5, 8, 9]\n\nnumeros_desc = sorted(numeros, reverse=True)\nprint(numeros_desc)  # [9, 8, 5, 2, 1]",
+        "explicacion": "# sort() modifica la lista original\nnumeros.sort()\n# sorted() devuelve nueva lista\nnumeros_desc = sorted(numeros, reverse=True)\n# La original sigue igual",
+        "plantilla": "numeros = [5, 2, 8, 1, 9]\nnumeros.______()\nprint(numeros)\n\nnumeros_desc = ______(numeros, reverse=True)\nprint(numeros_desc)"
+    },
+    {
+        "categoria": "Estructuras",
+        "titulo": "Tuplas (inmutables)",
+        "codigo": "coordenadas = (10, 20)\nprint(coordenadas[0])  # 10\n# coordenadas[0] = 5  # Error! inmutable\n\nx, y = coordenadas  # Desempaquetado\nprint(f\"x={x}, y={y}\")",
+        "explicacion": "# Definición con paréntesis\ncoordenadas = (10, 20)\n# Acceso por índice\nprint(coordenadas[0])\n# No se puede modificar\n# Desempaquetado automático\nx, y = coordenadas",
+        "plantilla": "coordenadas = (10, 20)\nprint(coordenadas[__])\n# coordenadas[0] = 5  # Error!\n\nx, y = __________\nprint(f\"x={x}, y={y}\")"
+    },
+    {
+        "categoria": "Estructuras",
+        "titulo": "Diccionarios - Acceso",
+        "codigo": "persona = {\n    'nombre': 'Lucía',\n    'edad': 28,\n    'ciudad': 'Madrid'\n}\nprint(persona['nombre'])\nprint(persona.get('telefono', 'No disponible'))",
+        "explicacion": "# Diccionario clave-valor\npersona = {\n    'nombre': 'Lucía',\n    'edad': 28\n}\n# Acceso directo (peligro si no existe)\nprint(persona['nombre'])\n# get() seguro con valor por defecto\nprint(persona.get('telefono', 'No disponible'))",
+        "plantilla": "persona = {\n    'nombre': 'Lucía',\n    'edad': __,\n    'ciudad': 'Madrid'\n}\nprint(persona[______])\nprint(persona.______('telefono', 'No disponible'))"
+    },
+    {
+        "categoria": "Estructuras",
+        "titulo": "Diccionarios - Iteración",
+        "codigo": "datos = {'a': 1, 'b': 2, 'c': 3}\nfor clave in datos:\n    print(clave)\n\nfor valor in datos.values():\n    print(valor)\n\nfor clave, valor in datos.items():\n    print(f\"{clave} -> {valor}\")",
+        "explicacion": "# Iterar sobre claves\nfor clave in datos:\n    print(clave)\n# Iterar sobre valores\nfor valor in datos.values():\n    print(valor)\n# Iterar sobre pares\nfor clave, valor in datos.items():\n    print(f\"{clave} -> {valor}\")",
+        "plantilla": "datos = {'a': 1, 'b': 2, 'c': 3}\nfor clave in datos:\n    print(clave)\n\nfor valor in datos.______():\n    print(valor)\n\nfor clave, valor in datos.______():\n    print(f\"{clave} -> {valor}\")"
+    },
+    {
+        "categoria": "Estructuras",
+        "titulo": "Conjuntos (set)",
+        "codigo": "conjunto_a = {1, 2, 3, 4}\nconjunto_b = {3, 4, 5, 6}\n\nunion = conjunto_a | conjunto_b\ninterseccion = conjunto_a & conjunto_b\ndiferencia = conjunto_a - conjunto_b\nprint(union)        # {1,2,3,4,5,6}\nprint(interseccion) # {3,4}",
+        "explicacion": "# Conjuntos (valores únicos)\nconjunto_a = {1, 2, 3, 4}\nconjunto_b = {3, 4, 5, 6}\n# Unión: | o .union()\nunion = conjunto_a | conjunto_b\n# Intersección: & o .intersection()\ninterseccion = conjunto_a & conjunto_b\n# Diferencia: - o .difference()\ndiferencia = conjunto_a - conjunto_b",
+        "plantilla": "conjunto_a = {1, 2, 3, 4}\nconjunto_b = {3, 4, 5, 6}\n\nunion = conjunto_a __ conjunto_b\ninterseccion = conjunto_a __ conjunto_b\ndiferencia = conjunto_a __ conjunto_b\nprint(union)\nprint(interseccion)"
+    },
+    {
+        "categoria": "Estructuras",
+        "titulo": "Pilas con listas (LIFO)",
+        "codigo": "pila = []\npila.append(1)  # Apilar\npila.append(2)\npila.append(3)\nelemento = pila.pop()  # Desapilar\nprint(elemento)  # 3\nprint(pila)      # [1, 2]",
+        "explicacion": "# Usar lista como pila (LIFO)\npila = []\n# push: append()\npila.append(1)\npila.append(2)\npila.append(3)\n# pop: extrae último\nelemento = pila.pop()\nprint(elemento)  # 3\nprint(pila)      # [1, 2]",
+        "plantilla": "pila = []\npila.________(1)\npila.________(2)\npila.________(3)\nelemento = pila.______()\nprint(elemento)\nprint(pila)"
+    },
+    {
+        "categoria": "Estructuras",
+        "titulo": "Colas con deque",
+        "codigo": "from collections import deque\ncola = deque([1, 2, 3])\ncola.append(4)      # Encolar\nprimero = cola.popleft()  # Desencolar\nprint(primero)  # 1\nprint(cola)     # deque([2, 3, 4])",
+        "explicacion": "# Deque: doble extremo\nfrom collections import deque\ncola = deque([1, 2, 3])\n# Encolar al final\ncola.append(4)\n# Desencolar del principio\nprimero = cola.popleft()",
+        "plantilla": "from collections import deque\ncola = deque([1, 2, 3])\ncola.________(4)\nprimero = cola.________()\nprint(primero)\nprint(cola)"
+    },
+    {
+        "categoria": "Funciones",
+        "titulo": "Funciones básicas (def)",
+        "codigo": "def saludar(nombre):\n    \"\"\"Función de saludo\"\"\"\n    return f\"Hola {nombre}\"\n\nmensaje = saludar('Carlos')\nprint(mensaje)  # Hola Carlos",
+        "explicacion": "# Definir función con def\ndef saludar(nombre):\n    \"\"\"Docstring opcional\"\"\"\n    return f\"Hola {nombre}\"\n# Llamada a la función\nmensaje = saludar('Carlos')\nprint(mensaje)",
+        "plantilla": "______ saludar(nombre):\n    \"\"\"Función de saludo\"\"\"\n    ______ f\"Hola {nombre}\"\n\nmensaje = saludar('Carlos')\nprint(mensaje)"
+    },
+    {
+        "categoria": "Funciones",
+        "titulo": "Parámetros por defecto",
+        "codigo": "def saludar(nombre, saludo='Hola'):\n    return f\"{saludo}, {nombre}\"\n\nprint(saludar('Ana'))           # Hola, Ana\nprint(saludar('Ana', 'Buenos días'))  # Buenos días, Ana",
+        "explicacion": "# Parámetro con valor por defecto\ndef saludar(nombre, saludo='Hola'):\n    return f\"{saludo}, {nombre}\"\n# Usa valor por defecto\nprint(saludar('Ana'))\n# Sobrescribe defecto\nprint(saludar('Ana', 'Buenos días'))",
+        "plantilla": "def saludar(nombre, saludo='Hola'):\n    return f\"{saludo}, {nombre}\"\n\nprint(saludar('Ana'))           # Hola, Ana\nprint(saludar('Ana', 'Buenos días'))  # Buenos días, Ana\n# La función espera 1 o 2 argumentos"
+    },
+    {
+        "categoria": "Funciones",
+        "titulo": "Argumentos por clave (**kwargs)",
+        "codigo": "def mostrar_info(**kwargs):\n    for clave, valor in kwargs.items():\n        print(f\"{clave}: {valor}\")\n\nmostrar_info(nombre='Luis', edad=25, ciudad='Valencia')",
+        "explicacion": "# **kwargs recoge args por clave\ndef mostrar_info(**kwargs):\n    for clave, valor in kwargs.items():\n        print(f\"{clave}: {valor}\")\n# Pasar argumentos nombrados\nmostrar_info(nombre='Luis', edad=25, ciudad='Valencia')",
+        "plantilla": "def mostrar_info(______kwargs):\n    for clave, valor in kwargs.items():\n        print(f\"{clave}: {valor}\")\n\nmostrar_info(nombre='Luis', edad=25, ciudad='Valencia')"
+    },
+    {
+        "categoria": "Funciones",
+        "titulo": "Argumentos variables (*args)",
+        "codigo": "def suma(*numeros):\n    return sum(numeros)\n\nprint(suma(1, 2, 3))       # 6\nprint(suma(10, 20, 30, 40)) # 100",
+        "explicacion": "# *args empaqueta argumentos en tupla\ndef suma(*numeros):\n    return sum(numeros)\n# Puede recibir cualquier cantidad\nprint(suma(1, 2, 3))\nprint(suma(10, 20, 30, 40))",
+        "plantilla": "def suma(*numeros):\n    return sum(numeros)\n\nprint(suma(1, 2, 3))       # 6\nprint(suma(10, 20, 30, 40)) # 100"
+    },
+    {
+        "categoria": "Funciones",
+        "titulo": "Funciones lambda",
+        "codigo": "cuadrado = lambda x: x ** 2\nprint(cuadrado(5))  # 25\n\n# Uso común con sorted\npuntos = [(1, 5), (2, 3), (4, 1)]\npuntos_ordenados = sorted(puntos, key=lambda p: p[1])\nprint(puntos_ordenados)  # [(4,1), (2,3), (1,5)]",
+        "explicacion": "# Lambda: función anónima de una línea\ncuadrado = lambda x: x ** 2\nprint(cuadrado(5))\n\n# Útil como argumento\npuntos = [(1, 5), (2, 3), (4, 1)]\n# Ordenar por segundo elemento\npuntos_ordenados = sorted(puntos, key=lambda p: p[1])",
+        "plantilla": "cuadrado = ______ x: x ** 2\nprint(cuadrado(5))\n\npuntos = [(1, 5), (2, 3), (4, 1)]\npuntos_ordenados = sorted(puntos, key=lambda p: p[1])\nprint(puntos_ordenados)"
+    },
+    {
+        "categoria": "Funciones",
+        "titulo": "Funciones como objetos",
+        "codigo": "def aplicar_operacion(x, y, operacion):\n    return operacion(x, y)\n\ndef suma(a, b): return a + b\ndef resta(a, b): return a - b\n\nprint(aplicar_operacion(5, 3, suma))   # 8\nprint(aplicar_operacion(5, 3, resta))  # 2",
+        "explicacion": "# Las funciones pueden pasarse como argumento\ndef aplicar_operacion(x, y, operacion):\n    return operacion(x, y)\n\ndef suma(a, b): return a + b\ndef resta(a, b): return a - b\n\n# Pasamos la función suma\nprint(aplicar_operacion(5, 3, suma))\nprint(aplicar_operacion(5, 3, resta))",
+        "plantilla": "def aplicar_operacion(x, y, operacion):\n    return ______(x, y)\n\ndef suma(a, b): return a + b\ndef resta(a, b): return a - b\n\nprint(aplicar_operacion(5, 3, suma))\nprint(aplicar_operacion(5, 3, resta))"
+    },
+    {
+        "categoria": "Funciones",
+        "titulo": "Ámbito de variables",
+        "codigo": "x = 10  # global\n\ndef funcion():\n    x = 5  # local\n    print(f\"Local: {x}\")\n\nfuncion()  # Local: 5\nprint(f\"Global: {x}\")  # Global: 10",
+        "explicacion": "# Variable global\nx = 10\n\ndef funcion():\n    x = 5  # Variable local (diferente)\n    print(f\"Local: {x}\")\n\nfuncion()\n# La global no cambia\nprint(f\"Global: {x}\")",
+        "plantilla": "x = 10\n\ndef funcion():\n    x = 5\n    print(f\"Local: {x}\")\n\nfuncion()\nprint(f\"Global: {x}\")\n# La variable x dentro de la función es local"
+    },
+    {
+        "categoria": "Funciones",
+        "titulo": "Return múltiple",
+        "codigo": "def operaciones(a, b):\n    suma = a + b\n    resta = a - b\n    producto = a * b\n    return suma, resta, producto\n\ns, r, p = operaciones(10, 3)\nprint(f\"Suma: {s}, Resta: {r}, Producto: {p}\")",
+        "explicacion": "# Puede devolver varios valores (como tupla)\ndef operaciones(a, b):\n    suma = a + b\n    resta = a - b\n    producto = a * b\n    return suma, resta, producto\n\n# Desempaquetado directo\ns, r, p = operaciones(10, 3)",
+        "plantilla": "def operaciones(a, b):\n    suma = a + b\n    resta = a - b\n    producto = a * b\n    return ______, ______, ______\n\ns, r, p = operaciones(10, 3)\nprint(f\"Suma: {s}, Resta: {r}, Producto: {p}\")"
+    },
+    {
+        "categoria": "Avanzado",
+        "titulo": "Decorador simple",
+        "codigo": "def decorador(func):\n    def wrapper():\n        print(\"Antes de la función\")\n        func()\n        print(\"Después de la función\")\n    return wrapper\n\n@decorador\ndef saludar():\n    print(\"Hola!\")\n\nsaludar()",
+        "explicacion": "# Decorador: función que envuelve otra\ndef decorador(func):\n    def wrapper():\n        print(\"Antes\")\n        func()\n        print(\"Después\")\n    return wrapper\n\n# Aplicar decorador con @\n@decorador\ndef saludar():\n    print(\"Hola!\")\n\n# Al llamar, se ejecuta wrapper\nsaludar()",
+        "plantilla": "def decorador(func):\n    def wrapper():\n        print(\"Antes\")\n        ______()\n        print(\"Después\")\n    return wrapper\n\n@decorador\ndef saludar():\n    print(\"Hola!\")\n\nsaludar()"
+    },
+    {
+        "categoria": "Avanzado",
+        "titulo": "Generador con yield",
+        "codigo": "def contador_hasta(n):\n    i = 1\n    while i <= n:\n        yield i\n        i += 1\n\nfor num in contador_hasta(5):\n    print(num)  # 1,2,3,4,5",
+        "explicacion": "# Generador: produce valores bajo demanda\ndef contador_hasta(n):\n    i = 1\n    while i <= n:\n        yield i  # Devuelve y pausa\n        i += 1\n\n# Se itera como cualquier secuencia\nfor num in contador_hasta(5):\n    print(num)",
+        "plantilla": "def contador_hasta(n):\n    i = 1\n    while i <= n:\n        ______ i\n        i += 1\n\nfor num in contador_hasta(5):\n    print(num)"
+    },
+    {
+        "categoria": "Avanzado",
+        "titulo": "Manejo de archivos (with open)",
+        "codigo": "with open('ejemplo.txt', 'w') as f:\n    f.write('Hola mundo')\n\nwith open('ejemplo.txt', 'r') as f:\n    contenido = f.read()\n    print(contenido)  # Hola mundo",
+        "explicacion": "# Escritura (modo 'w')\nwith open('ejemplo.txt', 'w') as f:\n    f.write('Hola mundo')\n# Lectura (modo 'r')\nwith open('ejemplo.txt', 'r') as f:\n    contenido = f.read()\n    print(contenido)\n# El archivo se cierra automáticamente",
+        "plantilla": "______ open('ejemplo.txt', 'w') as f:\n    f.write('Hola mundo')\n\nwith open('ejemplo.txt', 'r') as f:\n    contenido = f.______()\n    print(contenido)"
+    },
+    {
+        "categoria": "Avanzado",
+        "titulo": "Comprensión de diccionarios",
+        "codigo": "numeros = [1, 2, 3, 4, 5]\ncuadrados = {n: n**2 for n in numeros}\npares = {n: n**2 for n in numeros if n % 2 == 0}\nprint(cuadrados)  # {1:1, 2:4, 3:9, 4:16, 5:25}\nprint(pares)      # {2:4, 4:16}",
+        "explicacion": "# Comprensión: {clave: valor for elemento in iterable}\ncuadrados = {n: n**2 for n in numeros}\n# Con condición\npares = {n: n**2 for n in numeros if n % 2 == 0}",
+        "plantilla": "numeros = [1, 2, 3, 4, 5]\ncuadrados = {n: n**2 for n in numeros}\npares = {n: n**2 for n in numeros ______ n % 2 == 0}\nprint(cuadrados)\nprint(pares)"
+    },
+    {
+        "categoria": "Avanzado",
+        "titulo": "Zip y enumeración",
+        "codigo": "nombres = ['Ana', 'Luis', 'Carlos']\nedades = [25, 30, 35]\n\nfor nombre, edad in zip(nombres, edades):\n    print(f\"{nombre} tiene {edad} años\")\n\nfor i, (nombre, edad) in enumerate(zip(nombres, edades)):\n    print(f\"{i}: {nombre} - {edad}\")",
+        "explicacion": "# zip combina iterables\nfor nombre, edad in zip(nombres, edades):\n    print(f\"{nombre} tiene {edad} años\")\n# enumerate da índice, zip combina\nfor i, (nombre, edad) in enumerate(zip(nombres, edades)):\n    print(f\"{i}: {nombre} - {edad}\")",
+        "plantilla": "nombres = ['Ana', 'Luis', 'Carlos']\nedades = [25, 30, 35]\n\nfor nombre, edad in ______(nombres, edades):\n    print(f\"{nombre} tiene {edad} años\")\n\nfor i, (nombre, edad) in enumerate(zip(nombres, edades)):\n    print(f\"{i}: {nombre} - {edad}\")"
+    },
+    {
+        "categoria": "Avanzado",
+        "titulo": "Manejo de excepciones múltiples",
+        "codigo": "try:\n    x = int(input(\"Número: \"))\n    resultado = 10 / x\n    print(resultado)\nexcept ValueError:\n    print(\"No es un número válido\")\nexcept ZeroDivisionError:\n    print(\"No se puede dividir por cero\")\nexcept Exception as e:\n    print(f\"Error inesperado: {e}\")",
+        "explicacion": "# Capturar errores específicos\ntry:\n    x = int(input(\"Número: \"))\n    resultado = 10 / x\n    print(resultado)\nexcept ValueError:\n    print(\"No es un número válido\")\nexcept ZeroDivisionError:\n    print(\"No se puede dividir por cero\")\nexcept Exception as e:\n    print(f\"Error inesperado: {e}\")",
+        "plantilla": "try:\n    x = int(input(\"Número: \"))\n    resultado = 10 / x\n    print(resultado)\nexcept ______:\n    print(\"No es un número válido\")\nexcept ______:\n    print(\"No se puede dividir por cero\")\nexcept Exception as e:\n    print(f\"Error inesperado: {e}\")"
+    },
+    {
+        "categoria": "Avanzado",
+        "titulo": "Comprensión de conjuntos",
+        "codigo": "numeros = [1, 2, 2, 3, 4, 4, 5]\npares_unicos = {n for n in numeros if n % 2 == 0}\nprint(pares_unicos)  # {2, 4}",
+        "explicacion": "# Comprensión de conjuntos (set comprehension)\nnumeros = [1, 2, 2, 3, 4, 4, 5]\n# Filtra pares y elimina duplicados\npares_unicos = {n for n in numeros if n % 2 == 0}\nprint(pares_unicos)  # {2, 4}",
+        "plantilla": "numeros = [1, 2, 2, 3, 4, 4, 5]\npares_unicos = {n for n in numeros ______ n % 2 == 0}\nprint(pares_unicos)"
+    },
+    {
+        "categoria": "Avanzado",
+        "titulo": "Módulos y paquetes",
+        "codigo": "# archivo: mi_modulo.py\ndef saludar(nombre):\n    return f\"Hola {nombre}\"\n\n# otro archivo\nimport mi_modulo\nprint(mi_modulo.saludar(\"Ana\"))",
+        "explicacion": "# Creamos mi_modulo.py con función\ndef saludar(nombre):\n    return f\"Hola {nombre}\"\n\n# En otro archivo, importamos\nimport mi_modulo\n# Usamos la función\nprint(mi_modulo.saludar(\"Ana\"))",
+        "plantilla": "# mi_modulo.py\ndef saludar(nombre):\n    return f\"Hola {nombre}\"\n\n# programa_principal.py\n______ mi_modulo\nprint(mi_modulo.saludar(\"Ana\"))"
+    },
+    {
+        "categoria": "POO",
+        "titulo": "Clase y objeto básico",
+        "codigo": "class Perro:\n    def __init__(self, nombre):\n        self.nombre = nombre\n    \n    def ladrar(self):\n        print(f\"{self.nombre} dice: Guau!\")\n\nmi_perro = Perro(\"Rex\")\nmi_perro.ladrar()  # Rex dice: Guau!",
+        "explicacion": "# Definir clase\nclass Perro:\n    # Constructor (inicializador)\n    def __init__(self, nombre):\n        self.nombre = nombre  # Atributo\n    \n    # Método\n    def ladrar(self):\n        print(f\"{self.nombre} dice: Guau!\")\n\n# Crear instancia\nmi_perro = Perro(\"Rex\")\n# Llamar método\nmi_perro.ladrar()",
+        "plantilla": "class Perro:\n    def ______(self, nombre):\n        self.nombre = nombre\n    \n    def ladrar(self):\n        print(f\"{self.nombre} dice: Guau!\")\n\nmi_perro = Perro(\"Rex\")\nmi_perro.______()"
+    },
+    {
+        "categoria": "POO",
+        "titulo": "Herencia simple",
+        "codigo": "class Animal:\n    def __init__(self, nombre):\n        self.nombre = nombre\n    \n    def hablar(self):\n        pass\n\nclass Gato(Animal):\n    def hablar(self):\n        print(f\"{self.nombre} dice: Miau\")\n\ngato = Gato(\"Luna\")\ngato.hablar()  # Luna dice: Miau",
+        "explicacion": "# Clase padre\nclass Animal:\n    def __init__(self, nombre):\n        self.nombre = nombre\n    def hablar(self):\n        pass  # Método genérico\n\n# Clase hija hereda de Animal\nclass Gato(Animal):\n    # Sobrescribe método\n    def hablar(self):\n        print(f\"{self.nombre} dice: Miau\")\n\ngato = Gato(\"Luna\")\ngato.hablar()",
+        "plantilla": "class Animal:\n    def __init__(self, nombre):\n        self.nombre = nombre\n    \n    def hablar(self):\n        pass\n\nclass Gato(______):\n    def hablar(self):\n        print(f\"{self.nombre} dice: Miau\")\n\ngato = Gato(\"Luna\")\ngato.hablar()"
+    },
+    {
+        "categoria": "POO",
+        "titulo": "Encapsulación (propiedades)",
+        "codigo": "class Persona:\n    def __init__(self, nombre):\n        self._nombre = nombre  # \"Protegido\"\n    \n    @property\n    def nombre(self):\n        return self._nombre\n    \n    @nombre.setter\n    def nombre(self, valor):\n        if valor:\n            self._nombre = valor\n\np = Persona(\"Ana\")\nprint(p.nombre)  # Ana\np.nombre = \"\"    # No cambia por validación",
+        "explicacion": "# Atributo \"protegido\" con _\nself._nombre = nombre\n# Getter con @property\n@property\ndef nombre(self):\n    return self._nombre\n# Setter con @nombre.setter\n@nombre.setter\ndef nombre(self, valor):\n    if valor:  # Validación\n        self._nombre = valor",
+        "plantilla": "class Persona:\n    def __init__(self, nombre):\n        self._nombre = nombre\n    \n    @property\n    def nombre(self):\n        return self._nombre\n    \n    @nombre.______\n    def nombre(self, valor):\n        if valor:\n            self._nombre = valor\n\np = Persona(\"Ana\")\nprint(p.nombre)\np.nombre = \"\""
+    },
+    {
+        "categoria": "POO",
+        "titulo": "Métodos de clase y estáticos",
+        "codigo": "class Matematica:\n    @staticmethod\n    def suma(a, b):\n        return a + b\n    \n    @classmethod\n    def info(cls):\n        print(f\"Clase: {cls.__name__}\")\n\nprint(Matematica.suma(5, 3))  # 8\nMatematica.info()             # Clase: Matematica",
+        "explicacion": "# Método estático: no recibe self ni cls\n@staticmethod\ndef suma(a, b):\n    return a + b\n\n# Método de clase: recibe cls\n@classmethod\ndef info(cls):\n    print(f\"Clase: {cls.__name__}\")\n\n# Se llaman desde la clase",
+        "plantilla": "class Matematica:\n    @staticmethod\n    def suma(a, b):\n        return a + b\n    \n    @classmethod\n    def info(cls):\n        print(f\"Clase: {cls.__name__}\")\n\nprint(Matematica.______(5, 3))\nMatematica.______()"
+    },
+    {
+        "categoria": "POO",
+        "titulo": "Métodos especiales (__str__, __repr__)",
+        "codigo": "class Punto:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n    \n    def __str__(self):\n        return f\"({self.x}, {self.y})\"\n    \n    def __repr__(self):\n        return f\"Punto({self.x}, {self.y})\"\n\np = Punto(3, 4)\nprint(str(p))   # (3, 4)\nprint(repr(p))  # Punto(3, 4)",
+        "explicacion": "# __str__: para print() y str()\ndef __str__(self):\n    return f\"({self.x}, {self.y})\"\n# __repr__: representación para desarrolladores\ndef __repr__(self):\n    return f\"Punto({self.x}, {self.y})\"\n\np = Punto(3, 4)\nprint(str(p))\nprint(repr(p))",
+        "plantilla": "class Punto:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n    \n    def __str__(self):\n        return f\"({self.x}, {self.y})\"\n    \n    def __repr__(self):\n        return f\"Punto({self.x}, {self.y})\"\n\np = Punto(3, 4)\nprint(______(p))\nprint(______(p))"
+    },
+    {
+        "categoria": "POO",
+        "titulo": "Herencia múltiple",
+        "codigo": "class A:\n    def metodo(self):\n        print(\"Método de A\")\n\nclass B:\n    def metodo(self):\n        print(\"Método de B\")\n\nclass C(A, B):\n    pass\n\nc = C()\nc.metodo()  # Método de A (orden de herencia)",
+        "explicacion": "# Herencia múltiple: clase C hereda de A y B\nclass C(A, B):\n    pass\n# El método se busca en A primero\nc = C()\nc.metodo()  # Usa el de A\n# Se puede ver el orden con C.__mro__",
+        "plantilla": "class A:\n    def metodo(self):\n        print(\"Método de A\")\n\nclass B:\n    def metodo(self):\n        print(\"Método de B\")\n\nclass C(A, B):\n    pass\n\nc = C()\nc.metodo()  # ¿De qué clase?"
+    },
+    {
+        "categoria": "POO",
+        "titulo": "Polimorfismo",
+        "codigo": "class Pajaro:\n    def hacer_sonido(self):\n        return \"Pío\"\n\nclass Vaca:\n    def hacer_sonido(self):\n        return \"Muu\"\n\ndef sonido_animal(animal):\n    print(animal.hacer_sonido())\n\nsonido_animal(Pajaro())  # Pío\nsonido_animal(Vaca())    # Muu",
+        "explicacion": "# Misma interfaz, diferentes implementaciones\nclass Pajaro:\n    def hacer_sonido(self):\n        return \"Pío\"\n\nclass Vaca:\n    def hacer_sonido(self):\n        return \"Muu\"\n\n# Función que acepta cualquier objeto con ese método\ndef sonido_animal(animal):\n    print(animal.hacer_sonido())\n\nsonido_animal(Pajaro())\nsonido_animal(Vaca())",
+        "plantilla": "class Pajaro:\n    def hacer_sonido(self):\n        return \"Pío\"\n\nclass Vaca:\n    def hacer_sonido(self):\n        return \"Muu\"\n\ndef sonido_animal(animal):\n    print(animal.______())\n\nsonido_animal(Pajaro())\nsonido_animal(Vaca())"
+    },
+    {
+        "categoria": "Errores",
+        "titulo": "try-except básico",
+        "codigo": "try:\n    num = int(input(\"Número: \"))\n    print(10 / num)\nexcept ZeroDivisionError:\n    print(\"No dividir por cero\")",
+        "explicacion": "# Bloque try: código que puede fallar\ntry:\n    num = int(input(\"Número: \"))\n    print(10 / num)\n# except: manejo de error específico\nexcept ZeroDivisionError:\n    print(\"No dividir por cero\")",
+        "plantilla": "______:\n    num = int(input(\"Número: \"))\n    print(10 / num)\n______ ZeroDivisionError:\n    print(\"No dividir por cero\")"
+    },
+    {
+        "categoria": "Errores",
+        "titulo": "finally y else",
+        "codigo": "try:\n    archivo = open('datos.txt', 'r')\n    contenido = archivo.read()\nexcept FileNotFoundError:\n    print(\"Archivo no encontrado\")\nelse:\n    print(\"Archivo leído correctamente\")\nfinally:\n    archivo.close()\n    print(\"Cerrando archivo\")",
+        "explicacion": "# try: código que puede fallar\n# except: si hay error\n# else: si NO hay error\n# finally: siempre se ejecuta\n# Útil para liberar recursos",
+        "plantilla": "try:\n    archivo = open('datos.txt', 'r')\n    contenido = archivo.read()\nexcept FileNotFoundError:\n    print(\"Archivo no encontrado\")\n______:\n    print(\"Archivo leído correctamente\")\n______:\n    archivo.close()\n    print(\"Cerrando archivo\")"
+    },
+    {
+        "categoria": "Errores",
+        "titulo": "Lanzar excepciones (raise)",
+        "codigo": "def verificar_edad(edad):\n    if edad < 0:\n        raise ValueError(\"La edad no puede ser negativa\")\n    return True\n\ntry:\n    verificar_edad(-5)\nexcept ValueError as e:\n    print(e)  # La edad no puede ser negativa",
+        "explicacion": "# raise para lanzar excepción intencionadamente\ndef verificar_edad(edad):\n    if edad < 0:\n        raise ValueError(\"La edad no puede ser negativa\")\n    return True\n\ntry:\n    verificar_edad(-5)\nexcept ValueError as e:\n    print(e)",
+        "plantilla": "def verificar_edad(edad):\n    if edad < 0:\n        ______ ValueError(\"La edad no puede ser negativa\")\n    return True\n\ntry:\n    verificar_edad(-5)\nexcept ______ as e:\n    print(e)"
+    },
+    {
+        "categoria": "Errores",
+        "titulo": "Capturar múltiples excepciones",
+        "codigo": "try:\n    x = int(input(\"Número: \"))\n    resultado = 10 / x\nexcept (ValueError, ZeroDivisionError) as e:\n    print(f\"Error: {e}\")",
+        "explicacion": "# Capturar varios tipos en un except\ntry:\n    x = int(input(\"Número: \"))\n    resultado = 10 / x\n# Tupla de excepciones\nexcept (ValueError, ZeroDivisionError) as e:\n    print(f\"Error: {e}\")",
+        "plantilla": "try:\n    x = int(input(\"Número: \"))\n    resultado = 10 / x\nexcept (ValueError, ZeroDivisionError) as e:\n    print(f\"Error: {e}\")"
+    },
+    {
+        "categoria": "Errores",
+        "titulo": "Excepciones personalizadas",
+        "codigo": "class EdadInvalidaError(Exception):\n    pass\n\ndef set_edad(edad):\n    if edad < 0 or edad > 150:\n        raise EdadInvalidaError(f\"Edad {edad} no válida\")\n    print(f\"Edad: {edad}\")\n\ntry:\n    set_edad(200)\nexcept EdadInvalidaError as e:\n    print(e)",
+        "explicacion": "# Crear excepción propia\nclass EdadInvalidaError(Exception):\n    pass\n\ndef set_edad(edad):\n    if edad < 0 or edad > 150:\n        # Lanzar nuestra excepción\n        raise EdadInvalidaError(f\"Edad {edad} no válida\")\n    print(f\"Edad: {edad}\")\n\ntry:\n    set_edad(200)\nexcept EdadInvalidaError as e:\n    print(e)",
+        "plantilla": "class EdadInvalidaError(______):\n    pass\n\ndef set_edad(edad):\n    if edad < 0 or edad > 150:\n        raise EdadInvalidaError(f\"Edad {edad} no válida\")\n    print(f\"Edad: {edad}\")\n\ntry:\n    set_edad(200)\nexcept EdadInvalidaError as e:\n    print(e)"
+    },
+    {
+        "categoria": "Numpy",
+        "titulo": "Crear arrays",
+        "codigo": "import numpy as np\narr1 = np.array([1, 2, 3, 4])\narr2 = np.zeros(5)\narr3 = np.ones((2, 3))\narr4 = np.arange(0, 10, 2)\nprint(arr1)  # [1 2 3 4]\nprint(arr2)  # [0. 0. 0. 0. 0.]",
+        "explicacion": "# import numpy como np\nimport numpy as np\n# Desde lista\narr1 = np.array([1, 2, 3, 4])\n# Ceros\narr2 = np.zeros(5)\n# Unos, 2 filas 3 columnas\narr3 = np.ones((2, 3))\n# Rango como range\narr4 = np.arange(0, 10, 2)",
+        "plantilla": "______ numpy as np\narr1 = np.______([1, 2, 3, 4])\narr2 = np.______(5)\narr3 = np.ones((2, 3))\narr4 = np.______(0, 10, 2)"
+    },
+    {
+        "categoria": "Numpy",
+        "titulo": "Operaciones vectorizadas",
+        "codigo": "import numpy as np\na = np.array([1, 2, 3])\nb = np.array([4, 5, 6])\n\nprint(a + b)      # [5 7 9]\nprint(a * 2)      # [2 4 6]\nprint(a ** 2)     # [1 4 9]\nprint(a > 2)      # [False False True]",
+        "explicacion": "# Operaciones elemento a elemento\nimport numpy as np\na = np.array([1, 2, 3])\nb = np.array([4, 5, 6])\n# Suma vectorizada\nprint(a + b)\n# Multiplicar por escalar\nprint(a * 2)\n# Potencia\nprint(a ** 2)\n# Comparación\nprint(a > 2)",
+        "plantilla": "import numpy as np\na = np.array([1, 2, 3])\nb = np.array([4, 5, 6])\n\nprint(a __ b)\nprint(a __ 2)\nprint(a __ 2)\nprint(a __ 2)"
+    },
+    {
+        "categoria": "Numpy",
+        "titulo": "Indexación y slicing",
+        "codigo": "import numpy as np\narr = np.array([10, 20, 30, 40, 50])\nprint(arr[2])     # 30\nprint(arr[1:4])   # [20 30 40]\nprint(arr[-1])    # 50\narr[0:2] = 99\nprint(arr)        # [99 99 30 40 50]",
+        "explicacion": "# Igual que listas pero más eficiente\nimport numpy as np\narr = np.array([10, 20, 30, 40, 50])\n# Índice\nprint(arr[2])\n# Slicing\nprint(arr[1:4])\n# Índice negativo\nprint(arr[-1])\n# Asignación múltiple\narr[0:2] = 99\nprint(arr)",
+        "plantilla": "import numpy as np\narr = np.array([10, 20, 30, 40, 50])\nprint(arr[__])\nprint(arr[__:__])\nprint(arr[__])\narr[0:2] = 99\nprint(arr)"
+    },
+    {
+        "categoria": "Numpy",
+        "titulo": "Funciones universales (ufunc)",
+        "codigo": "import numpy as np\narr = np.array([1, 4, 9, 16])\nraiz = np.sqrt(arr)\nseno = np.sin(arr)\nexp = np.exp(arr)\nprint(raiz)  # [1. 2. 3. 4.]",
+        "explicacion": "# Funciones matemáticas sobre arrays\nimport numpy as np\narr = np.array([1, 4, 9, 16])\n# Raíz cuadrada\nraiz = np.sqrt(arr)\n# Seno (radianes)\nseno = np.sin(arr)\n# Exponencial\nexp = np.exp(arr)",
+        "plantilla": "import numpy as np\narr = np.array([1, 4, 9, 16])\nraiz = np.______(arr)\nseno = np.______(arr)\nexp = np.______(arr)"
+    },
+    {
+        "categoria": "Numpy",
+        "titulo": "Estadísticas básicas",
+        "codigo": "import numpy as np\ndatos = np.array([2, 4, 6, 8, 10])\nprint(np.mean(datos))    # 6.0\nprint(np.median(datos))  # 6.0\nprint(np.std(datos))     # 2.828\nprint(np.max(datos))     # 10\nprint(np.min(datos))     # 2",
+        "explicacion": "# Funciones estadísticas\nimport numpy as np\ndatos = np.array([2, 4, 6, 8, 10])\n# Media\nprint(np.mean(datos))\n# Mediana\nprint(np.median(datos))\n# Desviación estándar\nprint(np.std(datos))\n# Máximo/mínimo\nprint(np.max(datos))\nprint(np.min(datos))",
+        "plantilla": "import numpy as np\ndatos = np.array([2, 4, 6, 8, 10])\nprint(np.______(datos))\nprint(np.______(datos))\nprint(np.______(datos))\nprint(np.max(datos))\nprint(np.min(datos))"
+    },
+    {
+        "categoria": "Numpy",
+        "titulo": "Reshape (cambiar forma)",
+        "codigo": "import numpy as np\narr = np.arange(12)\nprint(arr)  # [0 1 2 ... 11]\nmatriz = arr.reshape(3, 4)\nprint(matriz)\n# [[ 0  1  2  3]\n#  [ 4  5  6  7]\n#  [ 8  9 10 11]]",
+        "explicacion": "# reshape cambia dimensiones\nimport numpy as np\narr = np.arange(12)  # 12 elementos\n# Reorganizar en 3 filas, 4 columnas\nmatriz = arr.reshape(3, 4)\nprint(matriz)\n# El total de elementos debe coincidir",
+        "plantilla": "import numpy as np\narr = np.arange(12)\nprint(arr)\nmatriz = arr.______(3, 4)\nprint(matriz)"
+    },
+    {
+        "categoria": "Pandas",
+        "titulo": "Crear Series",
+        "codigo": "import pandas as pd\ns = pd.Series([10, 20, 30, 40], index=['a', 'b', 'c', 'd'])\nprint(s)\n# a    10\n# b    20\n# c    30\n# d    40\ndtype: int64",
+        "explicacion": "# Series: una columna con índice\nimport pandas as pd\ns = pd.Series([10, 20, 30, 40], \n              index=['a', 'b', 'c', 'd'])\nprint(s)\n# Acceso por índice\nprint(s['b'])  # 20",
+        "plantilla": "import pandas as pd\ns = pd.______([10, 20, 30, 40], index=['a', 'b', 'c', 'd'])\nprint(s)\nprint(s[______])"
+    },
+    {
+        "categoria": "Pandas",
+        "titulo": "Crear DataFrame",
+        "codigo": "import pandas as pd\ndatos = {\n    'nombre': ['Ana', 'Luis', 'Carlos'],\n    'edad': [25, 30, 35],\n    'ciudad': ['Madrid', 'Barna', 'Valencia']\n}\ndf = pd.DataFrame(datos)\nprint(df)",
+        "explicacion": "# DataFrame: tabla con columnas\nimport pandas as pd\ndatos = {\n    'nombre': ['Ana', 'Luis', 'Carlos'],\n    'edad': [25, 30, 35],\n    'ciudad': ['Madrid', 'Barna', 'Valencia']\n}\ndf = pd.DataFrame(datos)\nprint(df)\n# Cada clave es una columna",
+        "plantilla": "import pandas as pd\ndatos = {\n    'nombre': ['Ana', 'Luis', 'Carlos'],\n    'edad': [25, 30, 35],\n    'ciudad': ['Madrid', 'Barna', 'Valencia']\n}\ndf = pd.______(datos)\nprint(df)"
+    },
+    {
+        "categoria": "Pandas",
+        "titulo": "Seleccionar columnas",
+        "codigo": "import pandas as pd\ndf = pd.DataFrame({'A': [1,2,3], 'B': [4,5,6], 'C': [7,8,9]})\nprint(df['A'])       # Serie columna A\nprint(df[['A', 'C']]) # DataFrame con A y C",
+        "explicacion": "# Seleccionar una columna (Serie)\nprint(df['A'])\n# Seleccionar varias columnas (DataFrame)\nprint(df[['A', 'C']])",
+        "plantilla": "import pandas as pd\ndf = pd.DataFrame({'A': [1,2,3], 'B': [4,5,6], 'C': [7,8,9]})\nprint(df[______])\nprint(df[[______, ______]])"
+    },
+    {
+        "categoria": "Pandas",
+        "titulo": "Filtrar filas",
+        "codigo": "import pandas as pd\ndf = pd.DataFrame({'nombre': ['Ana','Luis','Elena'],\n                   'edad': [25,30,35]})\nmayores = df[df['edad'] > 28]\nprint(mayores)\n#   nombre  edad\n# 1   Luis    30\n# 2  Elena    35",
+        "explicacion": "# Filtrar con condición booleana\nimport pandas as pd\ndf = pd.DataFrame(...)\n# Crear máscara booleana\nmascara = df['edad'] > 28\n# Aplicar máscara\nmayores = df[mascara]\nprint(mayores)",
+        "plantilla": "import pandas as pd\ndf = pd.DataFrame({'nombre': ['Ana','Luis','Elena'],\n                   'edad': [25,30,35]})\nmayores = df[df[______] > 28]\nprint(mayores)"
+    },
+    {
+        "categoria": "Pandas",
+        "titulo": "Leer CSV",
+        "codigo": "import pandas as pd\ndf = pd.read_csv('datos.csv')\nprint(df.head())  # primeras 5 filas\nprint(df.info())  # información del DataFrame",
+        "explicacion": "# read_csv lee archivo CSV\nimport pandas as pd\ndf = pd.read_csv('datos.csv')\n# head() muestra primeras filas\nprint(df.head())\n# info() da info de columnas y tipos\nprint(df.info())",
+        "plantilla": "import pandas as pd\ndf = pd.______('datos.csv')\nprint(df.______())\nprint(df.______())"
+    },
+    {
+        "categoria": "Testing",
+        "titulo": "assert básico",
+        "codigo": "def suma(a, b):\n    return a + b\n\n# Prueba simple\nresultado = suma(2, 3)\nassert resultado == 5, \"La suma debería ser 5\"\nprint(\"Prueba pasada\")",
+        "explicacion": "# assert condición, mensaje\n# Si falla, lanza AssertionError\ndef suma(a, b):\n    return a + b\n\nresultado = suma(2, 3)\nassert resultado == 5, \"La suma debería ser 5\"\nprint(\"Prueba pasada\")",
+        "plantilla": "def suma(a, b):\n    return a + b\n\nresultado = suma(2, 3)\n______ resultado == 5, \"La suma debería ser 5\"\nprint(\"Prueba pasada\")"
+    },
+    {
+        "categoria": "Testing",
+        "titulo": "Test con unittest",
+        "codigo": "import unittest\n\ndef suma(a, b):\n    return a + b\n\nclass TestSuma(unittest.TestCase):\n    def test_suma_positivos(self):\n        self.assertEqual(suma(2, 3), 5)\n    \n    def test_suma_negativos(self):\n        self.assertEqual(suma(-1, 1), 0)\n\nif __name__ == '__main__':\n    unittest.main()",
+        "explicacion": "# Módulo unittest\nimport unittest\n\n# Función a probar\ndef suma(a, b):\n    return a + b\n\n# Clase que hereda de TestCase\nclass TestSuma(unittest.TestCase):\n    def test_suma_positivos(self):\n        self.assertEqual(suma(2, 3), 5)\n    \n    def test_suma_negativos(self):\n        self.assertEqual(suma(-1, 1), 0)\n\n# Ejecutar tests\nif __name__ == '__main__':\n    unittest.main()",
+        "plantilla": "import unittest\n\ndef suma(a, b):\n    return a + b\n\nclass TestSuma(unittest.TestCase):\n    def test_suma_positivos(self):\n        self.______(suma(2, 3), 5)\n    \n    def test_suma_negativos(self):\n        self.assertEqual(suma(-1, 1), 0)\n\nif __name__ == '__main__':\n    unittest.______()"
+    }
+]
