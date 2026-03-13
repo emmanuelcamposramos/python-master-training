@@ -25,17 +25,24 @@ def normalizar_codigo(codigo: str) -> str:
     return ' '.join(codigo.split()).strip()
 
 def cargar_temas() -> list:
-    """Carga temas.json desde assets/ o directorio actual."""
     rutas = [
         os.path.join(os.path.dirname(__file__), "assets", "temas.json"),
         os.path.join(os.path.dirname(__file__), "temas.json"),
         "assets/temas.json",
         "temas.json",
     ]
+
     for ruta in rutas:
-        if os.path.exists(ruta):
-            with open(ruta, "r", encoding="utf-8") as f:
-                return json.load(f)
+        try:
+            if os.path.exists(ruta):
+                with open(ruta, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    if data:
+                        return data
+        except Exception as e:
+            print("Error leyendo:", ruta, e)
+
+    print("No se pudo cargar temas.json")
     return []
 
 # ── App ──────────────────────────────────────────────────────────────────────
