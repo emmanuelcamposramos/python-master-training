@@ -43,8 +43,11 @@ jobs:
           pip install flet --pre --extra-index-url https://pypi.flet.dev
 
       - name: Build APK
+        env:
+          FLET_CLI_NO_RICH_OUTPUT: "true"
+          CI: "true"
         run: |
-          flet build apk \
+          echo "y" | flet build apk \
             --project "Python Master Training" \
             --org com.tuusuario \
             --build-version 1.0.0
