@@ -39,7 +39,8 @@ jobs:
           sudo apt-get install -y libgtk-3-dev
 
       - name: Instalar Flet
-        run: pip install flet==0.23.2
+        run: |
+          pip install flet --pre --extra-index-url https://pypi.flet.dev
 
       - name: Build APK
         run: |
