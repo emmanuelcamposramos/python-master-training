@@ -147,4 +147,99 @@ KV = f"""
                 height: '30dp'
                 color: get_color_from_hex("{PY_YELLOW}")
             TextInput:
-                id
+                id: code_example
+                readonly: True
+                text: root.example_text
+                background_color: 1, 1, 1, 0.05
+                foreground_color: [0.9, 0.9, 0.9, 1]
+                font_size: '14sp'
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: "Your Code"
+                size_hint_y: None
+                height: '30dp'
+                color: get_color_from_hex("{PY_YELLOW}")
+            TextInput:
+                id: user_input
+                background_color: 1, 1, 1, 0.1
+                foreground_color: [1, 1, 1, 1]
+                cursor_color: get_color_from_hex("{PY_YELLOW}")
+                font_size: '14sp'
+
+        BoxLayout:
+            size_hint_y: 0.15
+            spacing: '15dp'
+            GlassButton:
+                text: "VERIFY"
+                on_release: root.verify_code()
+            GlassButton:
+                text: "VOLVER"
+                on_release: app.root.current = 'exercises'
+"""
+
+class MainScreen(Screen):
+    def on_enter(self):
+        self.ids.categories_grid.clear_widgets()
+        for cat in app.temas_data.keys():
+            btn = Builder.template('GlassButton', text=cat.upper())
+            btn.bind(on_release=lambda instance, c=cat: self.go_to_category(c))
+            self.ids.categories_grid.add_widget(btn)
+
+    def go_to_category(self, category):
+        app.root.get_screen('exercises').category_name = category
+        app.root.current = 'exercises'
+
+class ExercisesScreen(Screen):
+    category_name = ""
+    def on_enter(self):
+        self.ids.exercises_list.clear_widgets()
+        exercises = app.temas_data.get(self.category_name, [])
+        for ex in exercises:
+            btn = Builder.template('GlassButton', text=ex['titulo'])
+            btn.size_hint_y = None
+            btn.height = '60dp'
+            btn.bind(on_release=lambda instance, e=ex: self.go_to_practice(e))
+            self.ids.exercises_list.add_widget(btn)
+
+    def go_to_practice(self, exercise):
+        app.root.get_screen('practice').example_text = exercise['codigo']
+        app.root.current = 'practice'
+
+class PracticeScreen(Screen):
+    example_text = ""
+    def verify_code(self):
+        if self.ids.user_input.text.strip() == self.example_text.strip():
+            app.score += 10
+            app.root.current = 'main'
+
+class PythonMasterApp(App):
+    score = NumericProperty(0)
+    temas_data = {}
+
+    def build(self):
+        try:
+            with open('assets/temas.json', 'r', encoding='utf-8') as f:
+                self.temas_data = json.load(f)
+        except Exception as e:
+            print(f"Error cargando JSON: {e}")
+
+        Builder.load_string(KV)
+        sm = ScreenManager()
+        sm.add_widget(MainScreen(name='main'))
+        sm.add_widget(ExercisesScreen(name='exercises'))
+        sm.add_widget(PracticeScreen(name='practice'))
+        return sm
+
+    def on_score(self, instance, value):
+        try:
+            self.root.get_screen('main').ids.score_label.text = f"Score: {value}"
+        except:
+            pass
+
+    def reset_score(self):
+        self.score = 0
+
+if __name__ == '__main__':
+    PythonMasterApp().run()
