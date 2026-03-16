@@ -56,7 +56,10 @@ jobs:
           flet doctor
 
       - name: Instalar dependencias
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install kivy
+        
   
       - name: Build APK
         run: |
