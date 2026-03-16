@@ -45,19 +45,18 @@ KV = f"""
         padding: '20dp'
         spacing: '15dp'
 
-        RelativeLayout:
+                RelativeLayout:
             size_hint_y: 0.1
             Label:
                 text: "PTM"
-                font_size: '32sp'
-                bold: True
-                color: get_color_from_hex("{PY_BLUE}")
-                pos_hint: {{'center_x': 0.5, 'center_y': 0.5}}
+                # ... (resto de las propiedades)
             Label:
+                id: score_label  # <--- AGREGA ESTA LÍNEA
                 text: "Score: " + str(app.score)
                 font_size: '14sp'
-                color: get_color_from_hex("{PY_YELLOW}")
-                pos_hint: {{'right': 1, 'center_y': 0.5}}
+                color: get_color_from_hex("#FFD43B")
+                pos_hint: {'right': 1, 'center_y': 0.5}
+
 
         # Cuadrícula de Categorías (Imagen 2)
         ScrollView:
@@ -236,9 +235,11 @@ class PythonMasterApp(App):
         sm.add_widget(PracticeScreen(name='practice'))
         return sm
 
-    def reset_score(self):
+        def reset_score(self):
         self.score = 0
+        # Ahora que el ID existe, esto ya no lanzará el error
         self.root.get_screen('main').ids.score_label.text = "Score: 0"
+
 
 if __name__ == '__main__':
     PythonMasterApp().run()
