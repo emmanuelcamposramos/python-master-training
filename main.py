@@ -10,14 +10,10 @@ def obtener_ruta_json():
     """Busca temas.json en todas las ubicaciones posibles de Android/Desktop."""
     nombre_archivo = "temas.json"
     posibles_rutas = [
-        # Ruta 1: Carpeta assets relativa al script (Estándar Flet)
         os.path.join(os.path.dirname(__file__), "assets", nombre_archivo),
-        # Ruta 2: Carpeta assets en el directorio de trabajo
         os.path.join("assets", nombre_archivo),
-        # Ruta 3: Directorio raíz (por si acaso)
-        nombre_archivo,
-        # Ruta 4: Directorio temporal de extracción en Android
-        os.path.join(getattr(sys, '_MEIPASS', os.getcwd()), "assets", nombre_archivo)
+        os.path.join(getattr(sys, '_MEIPASS', os.getcwd()), "assets", nombre_archivo),
+        nombre_archivo
     ]
     
     for ruta in posibles_rutas:
@@ -35,7 +31,7 @@ def normalizar_codigo(codigo: str) -> str:
 PY_BLUE = "#3776AB"
 PY_YELLOW = "#FFD43B"
 BG_DARK = "#0A0A0A"
-GLASS_COLOR = "0x1AFFFFFF" # Un poco más visible para el modo oscuro
+GLASS_COLOR = "0x1AFFFFFF" 
 
 def main(page: ft.Page):
     page.title = "Python Master Training"
@@ -70,7 +66,7 @@ def main(page: ft.Page):
         page.add(
             ft.Row([
                 ft.Text("PTM", size=32, weight="bold", color=PY_BLUE),
-                ft.Text(f"Score: {state['score'] John}", id="score_text", size=18, color=PY_YELLOW, weight="bold"),
+                ft.Text(f"Score: {state['score']}", size=18, color=PY_YELLOW, weight="bold"),
             ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
         )
 
@@ -84,7 +80,7 @@ def main(page: ft.Page):
             page.update()
             return
 
-        # Grid de Categorías (Imagen 2 del boceto)
+        # Grid de Categorías (Imagen 2)
         categorias = sorted(list(set([t["categoria"] for t in temas_data])))
         grid = ft.GridView(expand=True, runs_count=2, spacing=15, run_spacing=15)
         
@@ -105,7 +101,6 @@ def main(page: ft.Page):
         page.add(
             ft.Row([
                 GlassContainer(ft.Text("RESET SCORE"), on_click=reset_score),
-                GlassContainer(ft.Text("SALIR"), on_click=lambda _: page.window_close())
             ], alignment=ft.MainAxisAlignment.CENTER, spacing=20)
         )
         page.update()
@@ -175,7 +170,7 @@ def main(page: ft.Page):
             page.snack_bar.open = True
             pantalla_inicio()
         else:
-            page.snack_bar = ft.SnackBar(ft.Text("Hay un error en el código, revisa espacios o símbolos"), bgcolor=ft.colors.RED_700)
+            page.snack_bar = ft.SnackBar(ft.Text("Error en el código, revisa espacios o símbolos"), bgcolor=ft.colors.RED_700)
             page.snack_bar.open = True
             page.update()
 
@@ -184,8 +179,6 @@ def main(page: ft.Page):
         pantalla_inicio()
 
     # --- LÓGICA DE CARGA INICIAL ---
-    
-    # 1. Cargar datos
     ruta = obtener_ruta_json()
     if ruta:
         try:
@@ -194,10 +187,7 @@ def main(page: ft.Page):
         except:
             pass
 
-    # 2. Iniciar app
     pantalla_inicio()
 
-# Ejecución
 if __name__ == "__main__":
     ft.app(target=main, assets_dir="assets")
-    
