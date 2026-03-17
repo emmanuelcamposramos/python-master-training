@@ -1,245 +1,154 @@
+import flet as ft
 import json
-from kivy.app import App
-from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.core.window import Window
-from kivy.utils import get_color_from_hex
-from kivy.properties import NumericProperty
+import os
+import re
+
+# --- UTILIDADES ---
+def normalizar_codigo(codigo: str) -> str:
+    codigo = re.sub(r'#.*', '', codigo)
+    codigo = codigo.replace("\n", " ").replace("\t", " ")
+    return " ".join(codigo.split()).strip()
+
+def cargar_temas():
+    rutas = ["assets/temas.json", os.path.join(os.path.dirname(__file__), "assets", "temas.json")]
+    for r in rutas:
+        if os.path.exists(r):
+            with open(r, "r", encoding="utf-8") as f:
+                return json.load(f)
+    return []
 
 # --- CONFIGURACIÓN ESTÉTICA ---
 PY_BLUE = "#3776AB"
 PY_YELLOW = "#FFD43B"
 BG_DARK = "#0A0A0A"
-GLASS_COLOR = [1, 1, 1, 0.08] 
-GLASS_BORDER = [0.21, 0.46, 0.67, 0.5] 
+GLASS_COLOR = "0x15FFFFFF"  # Blanco muy transparente
 
-KV = f"""
-<GlassButton@Button>:
-    background_color: 0, 0, 0, 0
-    font_size: '16sp'
-    bold: True
-    color: "#E0E0E0"
-    canvas.before:
-        Color:
-            rgba: {GLASS_COLOR}
-        RoundedRectangle:
-            pos: self.pos
-            size: self.size
-            radius: [15,]
-        Color:
-            rgba: {GLASS_BORDER}
-        Line:
-            width: 1.2
-            rounded_rectangle: (self.x, self.y, self.width, self.height, 15)
+def main(page: ft.Page):
+    page.title = "Python Master Training"
+    page.bgcolor = BG_DARK
+    page.theme_mode = ft.ThemeMode.DARK
+    page.padding = 20
+    
+    temas = cargar_temas()
+    state = {"score": 0, "categoria": None, "tema": None}
 
-<MainScreen>:
-    canvas.before:
-        Color:
-            rgb: get_color_from_hex("{BG_DARK}")
-        Rectangle:
-            pos: self.pos
-            size: self.size
-            
-    BoxLayout:
-        orientation: 'vertical'
-        padding: '20dp'
-        spacing: '15dp'
+    # --- COMPONENTES DE ESTILO ---
+    def GlassContainer(content, on_click=None, padding=15, expand=False):
+        return ft.Container(
+            content=content,
+            padding=padding,
+            on_click=on_click,
+            bgcolor=GLASS_COLOR,
+            border=ft.border.all(1, f"{PY_BLUE}55"),
+            border_radius=15,
+            blur=ft.Blur(10, 10, ft.BlurStyle.INNER),
+            expand=expand
+        )
 
-        RelativeLayout:
-            size_hint_y: 0.1
-            Label:
-                text: "PTM"
-                font_size: '32sp'
-                bold: True
-                color: get_color_from_hex("{PY_BLUE}")
-                pos_hint: {{'center_x': 0.5, 'center_y': 0.5}}
-            Label:
-                id: score_label
-                text: "Score: " + str(app.score)
-                font_size: '14sp'
-                color: get_color_from_hex("{PY_YELLOW}")
-                pos_hint: {{'right': 1, 'center_y': 0.5}}
+    # --- NAVEGACIÓN ---
+    def pantalla_inicio(e=None):
+        page.controls.clear()
+        
+        # Header (Score y Título)
+        page.add(
+            ft.Row([
+                ft.Text("PTM", size=32, weight="bold", color=PY_BLUE),
+                ft.Text(f"Score: {state['score']}", size=16, color=PY_YELLOW),
+            ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
+        )
 
-        ScrollView:
-            GridLayout:
-                id: categories_grid
-                cols: 2
-                spacing: '15dp'
-                size_hint_y: None
-                height: self.minimum_height
-                padding: [0, 10]
+        # Grid de Categorías (Imagen 2)
+        categorias = sorted(list(set([t["categoria"] for t in temas])))
+        grid = ft.GridView(expand=True, runs_count=2, spacing=15, run_spacing=15)
+        
+        for cat in categorias:
+            grid.controls.append(
+                GlassContainer(
+                    content=ft.Text(cat.upper(), weight="bold", text_align=ft.TextAlign.CENTER),
+                    on_click=lambda e, c=cat: pantalla_ejercicios(c)
+                )
+            )
+        
+        page.add(grid)
 
-        BoxLayout:
-            size_hint_y: 0.1
-            spacing: '10dp'
-            GlassButton:
-                text: "RESET SCORE"
-                on_release: app.reset_score()
-            GlassButton:
-                text: "VOLVER"
-                on_release: app.stop()
+        # Botones Inferiores
+        page.add(
+            ft.Row([
+                GlassContainer(ft.Text("RESET SCORE"), on_click=reset_score),
+                GlassContainer(ft.Text("SALIR"), on_click=lambda _: page.window_destroy()),
+            ], alignment=ft.MainAxisAlignment.CENTER, spacing=10)
+        )
+        page.update()
 
-<ExercisesScreen>:
-    canvas.before:
-        Color:
-            rgb: get_color_from_hex("{BG_DARK}")
-        Rectangle:
-            pos: self.pos
-            size: self.size
+    def pantalla_ejercicios(categoria):
+        state["categoria"] = categoria
+        page.controls.clear()
+        
+        page.add(ft.Text(f"PTM - {categoria}", size=24, color=PY_BLUE, weight="bold"))
+        
+        # Lista de Ejercicios (Imagen 1)
+        lista_ejercicios = ft.Column(scroll=ft.ScrollMode.AUTO, spacing=10, expand=True)
+        ejercicios_filtrados = [t for t in temas if t["categoria"] == categoria]
+        
+        for ex in ejercicios_filtrados:
+            lista_ejercicios.controls.append(
+                GlassContainer(
+                    content=ft.Row([ft.Text(ex["titulo"], expand=True)], alignment=ft.MainAxisAlignment.START),
+                    on_click=lambda e, tema=ex: pantalla_practica(tema)
+                )
+            )
+        
+        page.add(GlassContainer(content=lista_ejercicios, expand=True))
+        page.add(ft.Row([GlassContainer(ft.Text("VOLVER"), on_click=pantalla_inicio)], alignment=ft.MainAxisAlignment.END))
+        page.update()
 
-    BoxLayout:
-        orientation: 'vertical'
-        padding: '20dp'
-        spacing: '15dp'
+    def pantalla_practica(tema):
+        state["tema"] = tema
+        page.controls.clear()
+        
+        input_codigo = ft.TextField(
+            label="Your Code",
+            multiline=True,
+            min_lines=5,
+            bgcolor=ft.colors.BLACK12,
+            border_color=PY_YELLOW,
+            text_size=14
+        )
 
-        Label:
-            size_hint_y: 0.1
-            text: "PTM - " + root.category_name
-            font_size: '22sp'
-            color: get_color_from_hex("{PY_BLUE}")
+        # Estructura de práctica (Imagen 0)
+        page.add(
+            ft.Text("PTM", size=24, color=PY_BLUE, weight="bold"),
+            ft.Text("Code Example", color=PY_YELLOW),
+            GlassContainer(
+                content=ft.Text(tema["codigo"], font_family="monospace", size=13),
+                padding=10
+            ),
+            input_codigo,
+            ft.Row([
+                GlassContainer(ft.Text("VERIFY"), on_click=lambda e: verificar(input_codigo.value)),
+                GlassContainer(ft.Text("VOLVER"), on_click=lambda e: pantalla_ejercicios(state["categoria"])),
+            ], spacing=10)
+        )
+        page.update()
 
-        ScrollView:
-            canvas.before:
-                Color:
-                    rgba: {GLASS_COLOR}
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [20,]
-            BoxLayout:
-                id: exercises_list
-                orientation: 'vertical'
-                size_hint_y: None
-                height: self.minimum_height
-                padding: '10dp'
-                spacing: '10dp'
+    def verificar(valor):
+        esperado = normalizar_codigo(state["tema"]["codigo"])
+        entrada = normalizar_codigo(valor)
+        
+        if entrada == esperado:
+            state["score"] += 10
+            page.snack_bar = ft.SnackBar(ft.Text("¡Correcto! +10 puntos"))
+            page.snack_bar.open = True
+            pantalla_inicio()
+        else:
+            page.snack_bar = ft.SnackBar(ft.Text("Código incorrecto, intenta de nuevo"))
+            page.snack_bar.open = True
+            page.update()
 
-        GlassButton:
-            size_hint: (0.4, 0.1)
-            pos_hint: {{'right': 1}}
-            text: "VOLVER"
-            on_release: app.root.current = 'main'
+    def reset_score(e):
+        state["score"] = 0
+        pantalla_inicio()
 
-<PracticeScreen>:
-    canvas.before:
-        Color:
-            rgb: get_color_from_hex("{BG_DARK}")
-        Rectangle:
-            pos: self.pos
-            size: self.size
+    pantalla_inicio()
 
-    BoxLayout:
-        orientation: 'vertical'
-        padding: '20dp'
-        spacing: '20dp'
-
-        Label:
-            size_hint_y: 0.05
-            text: "PTM"
-            font_size: '24sp'
-            color: get_color_from_hex("{PY_BLUE}")
-
-        BoxLayout:
-            orientation: 'vertical'
-            Label:
-                text: "Code Example"
-                size_hint_y: None
-                height: '30dp'
-                color: get_color_from_hex("{PY_YELLOW}")
-            TextInput:
-                id: code_example
-                readonly: True
-                text: root.example_text
-                background_color: 1, 1, 1, 0.05
-                foreground_color: [0.9, 0.9, 0.9, 1]
-                font_size: '14sp'
-
-        BoxLayout:
-            orientation: 'vertical'
-            Label:
-                text: "Your Code"
-                size_hint_y: None
-                height: '30dp'
-                color: get_color_from_hex("{PY_YELLOW}")
-            TextInput:
-                id: user_input
-                background_color: 1, 1, 1, 0.1
-                foreground_color: [1, 1, 1, 1]
-                cursor_color: get_color_from_hex("{PY_YELLOW}")
-                font_size: '14sp'
-
-        BoxLayout:
-            size_hint_y: 0.15
-            spacing: '15dp'
-            GlassButton:
-                text: "VERIFY"
-                on_release: root.verify_code()
-            GlassButton:
-                text: "VOLVER"
-                on_release: app.root.current = 'exercises'
-"""
-
-class MainScreen(Screen):
-    def on_enter(self):
-        self.ids.categories_grid.clear_widgets()
-        for cat in app.temas_data.keys():
-            btn = Builder.template('GlassButton', text=cat.upper())
-            btn.bind(on_release=lambda instance, c=cat: self.go_to_category(c))
-            self.ids.categories_grid.add_widget(btn)
-
-    def go_to_category(self, category):
-        app.root.get_screen('exercises').category_name = category
-        app.root.current = 'exercises'
-
-class ExercisesScreen(Screen):
-    category_name = ""
-    def on_enter(self):
-        self.ids.exercises_list.clear_widgets()
-        exercises = app.temas_data.get(self.category_name, [])
-        for ex in exercises:
-            btn = Builder.template('GlassButton', text=ex['titulo'])
-            btn.size_hint_y = None
-            btn.height = '60dp'
-            btn.bind(on_release=lambda instance, e=ex: self.go_to_practice(e))
-            self.ids.exercises_list.add_widget(btn)
-
-    def go_to_practice(self, exercise):
-        app.root.get_screen('practice').example_text = exercise['codigo']
-        app.root.current = 'practice'
-
-class PracticeScreen(Screen):
-    example_text = ""
-    def verify_code(self):
-        if self.ids.user_input.text.strip() == self.example_text.strip():
-            app.score += 10
-            app.root.current = 'main'
-
-class PythonMasterApp(App):
-    score = NumericProperty(0)
-    temas_data = {}
-
-    def build(self):
-        try:
-            with open('assets/temas.json', 'r', encoding='utf-8') as f:
-                self.temas_data = json.load(f)
-        except Exception as e:
-            print(f"Error cargando JSON: {e}")
-
-        Builder.load_string(KV)
-        sm = ScreenManager()
-        sm.add_widget(MainScreen(name='main'))
-        sm.add_widget(ExercisesScreen(name='exercises'))
-        sm.add_widget(PracticeScreen(name='practice'))
-        return sm
-
-    def on_score(self, instance, value):
-        try:
-            self.root.get_screen('main').ids.score_label.text = f"Score: {value}"
-        except:
-            pass
-
-    def reset_score(self):
-        self.score = 0
-
-if __name__ == '__main__':
-    PythonMasterApp().run()
+ft.app(target=main, assets_dir="assets")
